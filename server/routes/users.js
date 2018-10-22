@@ -5,7 +5,9 @@ var router = express.Router();
 
 // console.log(data)
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+
+
+router.get('/suggestions', function(req, res, next) {
   res.json([
     "cherimoya",
     "cherry",

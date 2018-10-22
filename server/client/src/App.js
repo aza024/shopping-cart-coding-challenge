@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import { userInfo } from 'os';
+
 
 class App extends Component {
   // state = { items: [],
@@ -9,12 +9,24 @@ class App extends Component {
     super();
     this.state = {
       search: '',
-      items: []
+      items: [],
+      kart: []
     }
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
   
   updateSearch(e) {
     this.setState({search: e.target.value.substring(0,40)})
+  }
+  
+  onFormSubmit(e){
+    e.preventDefault()
+    console.log('hello')
+    if (this.state.items.indexOf(e.target[0].value) !== -1){
+      this.setState({
+        kart: this.state.kart.concat([e.target[0].value])
+      })
+    }
   }
 
   componentDidMount(){
@@ -25,21 +37,37 @@ class App extends Component {
   }
 
   render() {
-    let filteredItems = this.state.items.filter(
-      (item) => {
-        return item.indexOf(this.state.search.toLowerCase()) !== -1;
-      }
-    );
+    let filteredItems = []
+    let kartItems = []
+
+    if(this.state.search !== ''){
+      filteredItems = this.state.items.filter(
+        (item) => {
+          return item.indexOf(this.state.search.toLowerCase()) !== -1;
+        }
+      );
+    }
+     
     return (
       <div className="App">
+       <form onSubmit={ this.onFormSubmit } id="taskForm">
        <input type = "text" 
           value = {this.state.search}
-          onChange={this.updateSearch.bind(this)}
+          onChange={
+            this.updateSearch.bind(this)
+          }
         />
-       <ul>
+        <button type="submit">Add</button>
+       <div className = "itemsList">
          {filteredItems.map(item => 
           <li>{item}</li>)} 
-       </ul> 
+       </div> 
+
+       <div className = "kart">
+        {this.state.kart}
+       </div>
+
+       </form>
       </div>
     );
   }
