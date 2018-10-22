@@ -50,6 +50,10 @@ class App extends Component {
      
     return (
       <div className="App">
+      <header className = "header">FullStack Kart</header>
+      <div class = "mainPage">
+      <aside className = "sidebar">Home</aside>
+      <div className = "form">
        <form onSubmit={ this.onFormSubmit } id="taskForm">
        <input type = "text" 
           value = {this.state.search}
@@ -64,10 +68,13 @@ class App extends Component {
        </div> 
 
        <div className = "kart">
+       <h1> Kart </h1>
         {this.state.kart}
        </div>
 
        </form>
+      </div>
+      </div>
       </div>
     );
   }

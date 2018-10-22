@@ -13,3 +13,32 @@
 .kart{
   margin-top: 250px;
 }
+
+
+.form{
+  height: 100%;
+  width: 70%;
+  position: relative;
+}
+
+.mainPage{
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar{
+  width: 30%;
+  background-color: #424450;
+  color: white;
+  font-weight: 800;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+.header{
+  background-color: #79AD6E;
+  color: white; 
+  text-align: center;
+  padding: 5%;
+  font-weight: 800;
+}
