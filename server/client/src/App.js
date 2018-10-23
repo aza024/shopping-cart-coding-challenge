@@ -68,7 +68,7 @@ class App extends Component {
        </div> 
 
        <div className = "kart">
-       <h1> Kart </h1>
+       <h4> My Kart </h4>
         {this.state.kart}
        </div>
 
